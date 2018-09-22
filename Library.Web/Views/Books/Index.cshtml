@@ -1,0 +1,27 @@
+﻿@using Library.Models
+@model List<Book>
+@{
+    ViewData["Title"] = "Books";
+}
+<h2>List of books</h2>
+
+
+<table class="table">
+    <tr>
+        <th>@Html.LabelFor(x => x.FirstOrDefault().Id)</th>
+        <th>@Html.LabelFor(x => x.FirstOrDefault().Author)</th>
+        <th>@Html.LabelFor(x => x.FirstOrDefault().Title)</th>
+        <th>@Html.LabelFor(x => x.FirstOrDefault().Genre.Name)</th>
+    </tr>
+    @foreach (var book in Model)
+    {
+    <tr>
+        <td>@book.Id</td>
+        <td>@book.Author</td>
+        <td>@book.Title</td>
+        <td>@book.Genre.Name</td>
+    </tr>
+
+    }    
+</table>
+
