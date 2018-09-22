@@ -43,5 +43,19 @@ namespace Library.Repositories
         {
             return _allBooks.FirstOrDefault(x => x.Id == id);
         }
+
+        public int AddBook(Book book)
+        {
+            var maxId = _allBooks.Select(x => x.Id).Max();
+            book.Id = maxId + 1;
+
+            var genreRepository = new GenresRepository();
+            book.Genre = genreRepository.Get(book.GenreId);
+
+            _allBooks.Add(book);
+
+            return book.Id;
+
+        }
     }
 }

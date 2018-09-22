@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Library.Models;
 using Library.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Library.Web.Controllers
 {
@@ -12,6 +13,7 @@ namespace Library.Web.Controllers
     {
         static BooksRepository _booksRepository = new BooksRepository();
         static List<Book> _booksList = _booksRepository.GetBooks();
+        private GenresRepository _genresRepository = new GenresRepository();
 
         public IActionResult Index()
         {
@@ -21,6 +23,26 @@ namespace Library.Web.Controllers
         public IActionResult Details(int id)
         {
             return View(_booksRepository.GetBook(id));
+        }
+
+        [HttpPost]
+        public IActionResult Create(Book book)
+        {
+            var newBookId = _booksRepository.AddBook(book);
+            return RedirectToAction("Details", new { id = newBookId });
+           
+        }
+
+        public IActionResult Create()
+        {
+            ViewBag.Genres = _genresRepository.GetAll()
+                .Select(x =>
+                new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+            return View();
         }
     }
 }

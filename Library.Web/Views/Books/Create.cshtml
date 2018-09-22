@@ -1,0 +1,50 @@
+﻿@model Book
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Create book</h2>
+@using (Html.BeginForm())
+{
+
+    <div class="row">
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            @Html.DisplayNameFor(x => x.Author)
+        </div>
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            @Html.EditorFor(x => x.Author)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            @Html.DisplayNameFor(x => x.Title)
+        </div>
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            @Html.EditorFor(x => x.Title)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            @Html.DisplayNameFor(x => x.ProductionYear)
+        </div>
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            @Html.EditorFor(x => x.ProductionYear)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            Genre name
+        </div>
+        <div class="col-lg-1 col-md-10 col-xs-12">
+            @Html.DropDownListFor(x => x.GenreId, (IEnumerable<SelectListItem>)ViewBag.Genres)
+        </div>
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+}
+<div>@Html.ActionLink("Back", "Index", "Books", null, new { @class = "btn btn-primary" }) </div>
+
+
+

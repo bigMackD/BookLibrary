@@ -16,14 +16,15 @@
     </tr>
     @foreach (var book in Model)
     {
-    <tr>
-        <td>@book.Id</td>
-        <td>@book.Author</td>
-        <td>@book.Title</td>
-        <td>@book.Genre.Name</td>
-        <td>@Html.ActionLink("Details","Details","Books", new { id = book.Id }, new { @class = "btn btn-primary" })</td>
-    </tr>
+        <tr>
+            <td>@book.Id</td>
+            <td>@book.Author</td>
+            <td>@book.Title</td>
+            <td>@book.Genre.Name</td>
+            <td>@Html.ActionLink("Details", "Details", "Books", new { id = book.Id }, new { @class = "btn btn-primary" })</td>
+        </tr>
 
-    }    
+    }
 </table>
+@Html.ActionLink("Create book","Create","Books", null, new { @class = "btn btn-primary" })
 

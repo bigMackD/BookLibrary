@@ -15,5 +15,7 @@ namespace Library.Models
         public int ProductionYear { get; set; }
         [DisplayName("Genre")]
         public Genre Genre { get; set; }
+
+        public int GenreId { get; set; }
     }
 }
