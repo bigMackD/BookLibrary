@@ -1,0 +1,23 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>@Model.Title</h2>
+<table class="table">
+    <tr>
+        <td>@Html.LabelFor(x => x.Author)</td>
+        <td>@Model.Author</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Genre.Name)</td>
+        <td>@Model.Genre.Name</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.ProductionYear)</td>
+        <td>@Model.ProductionYear</td>
+    </tr>
+</table>
+<div>@Html.ActionLink("Back", "Index", "Books", null, new { @class = "btn btn-primary" }) </div>
+
+

@@ -1,6 +1,7 @@
 ﻿using Library.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Library.Repositories
 {
@@ -36,6 +37,11 @@ namespace Library.Repositories
         public List<Book> GetBooks()
         {
             return _allBooks;
+        }
+
+        public Book GetBook(int id)
+        {
+            return _allBooks.FirstOrDefault(x => x.Id == id);
         }
     }
 }

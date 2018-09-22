@@ -1,4 +1,4 @@
-﻿@using Library.Models
+﻿
 @model List<Book>
 @{
     ViewData["Title"] = "Books";
@@ -12,6 +12,7 @@
         <th>@Html.LabelFor(x => x.FirstOrDefault().Author)</th>
         <th>@Html.LabelFor(x => x.FirstOrDefault().Title)</th>
         <th>@Html.LabelFor(x => x.FirstOrDefault().Genre.Name)</th>
+        <th>Action</th>
     </tr>
     @foreach (var book in Model)
     {
@@ -20,6 +21,7 @@
         <td>@book.Author</td>
         <td>@book.Title</td>
         <td>@book.Genre.Name</td>
+        <td>@Html.ActionLink("Details","Details","Books", new { id = book.Id }, new { @class = "btn btn-primary" })</td>
     </tr>
 
     }    
