@@ -4,7 +4,7 @@
 *@
 @{
 }
-<h2>Update book</h2>
+<h2>Remove book</h2>
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -44,8 +44,8 @@
         </div>
     </div>
     <div class="col-md-offset-2 col-md-10">
-        <input type="submit" value="Update" class="btn btn-warning" />
     </div>
+    <input type ="submit" class="btn btn-danger" value="Remove" />
 }
 <div>@Html.ActionLink("Back", "Index", "Books", null, new { @class = "btn btn-primary" }) </div>
 

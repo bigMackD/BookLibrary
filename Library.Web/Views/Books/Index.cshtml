@@ -22,7 +22,8 @@
         <td>@book.Title</td>
         <td>@book.Genre.Name</td>
         <td>@Html.ActionLink("Details", "Details", "Books", new { id = book.Id }, new { @class = "btn btn-primary" })</td>
-        <td>@Html.ActionLink("Update", "Update", "Books", new { id = book.Id }, new { @class = "btn btn-primary" })</td>
+        <td>@Html.ActionLink("Update", "Update", "Books", new { id = book.Id }, new { @class = "btn btn-warning" })</td>
+        <td>@Html.ActionLink("Remove", "Remove", "Books", new { id = book.Id }, new { @class = "btn btn-danger" })</td>
 
     </tr>
 

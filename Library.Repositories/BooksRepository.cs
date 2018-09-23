@@ -66,5 +66,11 @@ namespace Library.Repositories
             _allBooks.Remove(existingBook);
             _allBooks.Add(book);
         }
+
+        public void RemoveBook(Book book)
+        {
+            var bookToBeRemoved = _allBooks.FirstOrDefault(x => x.Id == book.Id);
+            _allBooks.Remove(bookToBeRemoved);
+        }
     }
 }

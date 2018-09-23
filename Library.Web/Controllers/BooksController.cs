@@ -25,9 +25,6 @@ namespace Library.Web.Controllers
             return View(_booksRepository.GetBook(id));
         }
 
-
-       
-
         [HttpPost]
         public IActionResult Create(Book book)
         {
@@ -72,6 +69,29 @@ namespace Library.Web.Controllers
               });
             var bookToUpdate = _booksRepository.GetBook(id);
             return View(bookToUpdate);
+        }
+
+        [HttpGet]
+        public IActionResult Remove(int id)
+        {
+            ViewBag.Genres = _genresRepository.GetAll()
+               .Select(x =>
+               new SelectListItem
+               {
+                   Text = x.Name,
+                   Value = x.Id.ToString()
+               });
+            var book = _booksRepository.GetBook(id);
+            return View(book);
+        }
+
+        [HttpPost]
+        public IActionResult Remove(Book book)
+        {
+
+            _booksRepository.RemoveBook(book);
+            return RedirectToAction("Index");
+
         }
     }
 }
