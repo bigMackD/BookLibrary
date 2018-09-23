@@ -34,6 +34,12 @@ namespace Library.Repositories
                 }
             }
         };
+
+        public object GetBooksByGenreId(int id)
+        {
+            return _allBooks.Where(x => x.Genre.Id == id).ToList();
+        }
+
         public List<Book> GetBooks()
         {
             return _allBooks.OrderBy(x => x.Id).ToList();

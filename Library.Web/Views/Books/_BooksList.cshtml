@@ -1,0 +1,34 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Books";
+}
+@if (Model.Any())
+{
+    <table>
+        <tr>
+            <th>@Html.LabelFor(x => x.FirstOrDefault().Id)</th>
+            <th>@Html.LabelFor(x => x.FirstOrDefault().Author)</th>
+            <th>@Html.LabelFor(x => x.FirstOrDefault().Title)</th>
+            <th>@Html.LabelFor(x => x.FirstOrDefault().Genre.Name)</th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Author</td>
+                <td>@book.Title</td>
+                <td>@book.Genre.Name</td>
+                <td>@Html.ActionLink("Details", "Details", "Books", new { id = book.Id }, new { @class = "btn btn-primary" })</td>
+                <td>@Html.ActionLink("Update", "Update", "Books", new { id = book.Id }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Remove", "Remove", "Books", new { id = book.Id }, new { @class = "btn btn-" })</td>
+
+            </tr>
+        }
+    </table>
+}
+else
+{
+  <div>No books</div>
+}

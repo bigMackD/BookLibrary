@@ -16,8 +16,29 @@ namespace Library.Web.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Genres = _genresRepository.GetAll()
+               .Select(x =>
+               new SelectListItem
+               {
+                   Text = x.Name,
+                   Value = x.Id.ToString()
+               });
             var booksList = _booksRepository.GetBooks();
             return View(booksList);
+        }
+
+        public ActionResult BooksList(int? genreId)
+        {
+            if (genreId.HasValue)
+            {
+                var model = new BooksRepository().GetBooksByGenreId(genreId.Value);
+                return PartialView("_BooksList", model);
+            }
+            else
+            {
+                var model = new BooksRepository().GetBooks();
+                return PartialView("_BooksList", model);
+            }
         }
 
         public IActionResult Details(int id)
