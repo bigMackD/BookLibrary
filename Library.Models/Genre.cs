@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace Library.Models
+namespace Library.Database
 {
     public class Genre
     {

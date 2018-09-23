@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Library.Models
+namespace Library.Database
 {
     public class Book
     {

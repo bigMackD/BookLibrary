@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Web", "Library.Web\Library.Web.csproj", "{5CD1B991-3F4F-4480-BD8E-7FB0E6886607}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Web", "Library.Web\Library.Web.csproj", "{5CD1B991-3F4F-4480-BD8E-7FB0E6886607}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Models", "Library.Models\Library.Models.csproj", "{118FEF77-6951-45E1-81A0-EEAB49562B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Models", "Library.Models\Library.Models.csproj", "{118FEF77-6951-45E1-81A0-EEAB49562B81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Repositories", "Library.Repositories\Library.Repositories.csproj", "{FFA49EB3-5EFF-46BC-A0C6-B0476A978545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Repositories", "Library.Repositories\Library.Repositories.csproj", "{FFA49EB3-5EFF-46BC-A0C6-B0476A978545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Database", "Library.Database\Library.Database.csproj", "{4D7132C7-2EC5-4911-9EB2-526CF516A067}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Database", "Library.Database\Library.Database.csproj", "{4D7132C7-2EC5-4911-9EB2-526CF516A067}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Library.Database\Library.Database.csproj" />
     <ProjectReference Include="..\Library.Repositories\Library.Repositories.csproj" />
   </ItemGroup>
 
