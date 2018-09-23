@@ -12,12 +12,12 @@ namespace Library.Web.Controllers
     public class BooksController : Controller
     {
         static BooksRepository _booksRepository = new BooksRepository();
-        static List<Book> _booksList = _booksRepository.GetBooks();
         private GenresRepository _genresRepository = new GenresRepository();
 
         public IActionResult Index()
         {
-            return View(_booksList);
+            var booksList = _booksRepository.GetBooks();
+            return View(booksList);
         }
 
         public IActionResult Details(int id)
@@ -31,8 +31,13 @@ namespace Library.Web.Controllers
         [HttpPost]
         public IActionResult Create(Book book)
         {
-            var newBookId = _booksRepository.AddBook(book);
-            return RedirectToAction("Details", new { id = newBookId });
+          
+         //   if (ModelState.IsValid)
+            {
+                var newBookId = _booksRepository.AddBook(book);
+                return RedirectToAction("Details", new { id = newBookId });
+            }
+         //   else return View(book);
            
         }
 
@@ -46,6 +51,27 @@ namespace Library.Web.Controllers
                     Value = x.Id.ToString()
                 });
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Update(Book book)
+        {
+            _booksRepository.UpdateBook(book);
+            return RedirectToAction("Details", new { book.Id });
+        }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            ViewBag.Genres = _genresRepository.GetAll()
+              .Select(x =>
+              new SelectListItem
+              {
+                  Text = x.Name,
+                  Value = x.Id.ToString()
+              });
+            var bookToUpdate = _booksRepository.GetBook(id);
+            return View(bookToUpdate);
         }
     }
 }

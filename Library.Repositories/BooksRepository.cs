@@ -36,7 +36,7 @@ namespace Library.Repositories
         };
         public List<Book> GetBooks()
         {
-            return _allBooks;
+            return _allBooks.OrderBy(x => x.Id).ToList();
         }
 
         public Book GetBook(int id)
@@ -56,6 +56,15 @@ namespace Library.Repositories
 
             return book.Id;
 
+        }
+
+        public void UpdateBook (Book book)
+        {
+            var genreRepository = new GenresRepository();
+            book.Genre = genreRepository.Get(book.GenreId);
+            var existingBook = _allBooks.FirstOrDefault(x => x.Id == book.Id);
+            _allBooks.Remove(existingBook);
+            _allBooks.Add(book);
         }
     }
 }
