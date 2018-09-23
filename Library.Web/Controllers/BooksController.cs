@@ -28,13 +28,19 @@ namespace Library.Web.Controllers
         [HttpPost]
         public IActionResult Create(Book book)
         {
-          
-         //   if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var newBookId = _booksRepository.AddBook(book);
                 return RedirectToAction("Details", new { id = newBookId });
             }
-         //   else return View(book);
+            ViewBag.Genres = _genresRepository.GetAll()
+                   .Select(x =>
+                   new SelectListItem
+                   {
+                       Text = x.Name,
+                       Value = x.Id.ToString()
+                   });
+            return View(book);
            
         }
 

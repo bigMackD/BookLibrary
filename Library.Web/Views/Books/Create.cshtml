@@ -33,6 +33,7 @@
         </div>
         <div class="col-lg-1 col-md-10 col-xs-12">
             @Html.EditorFor(x => x.ProductionYear)
+            @Html.ValidationMessageFor(x => x.ProductionYear, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="row">

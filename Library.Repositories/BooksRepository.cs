@@ -54,7 +54,7 @@ namespace Library.Repositories
 
             _allBooks.Add(book);
 
-            return book.Id;
+            return book.Id.Value;
 
         }
 
